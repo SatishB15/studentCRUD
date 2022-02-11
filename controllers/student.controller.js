@@ -61,6 +61,5 @@ const studentController = {
   getSingleStudent,
   addStudent,
   updateStudent,
-  deleteStudent,
 };
 module.exports = studentController;
