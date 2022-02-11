@@ -6,12 +6,19 @@ const studentRoute = require('./routes/student.route');
 const app = express();
 const db = require('./config/connection');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(cors());
+
+//database connection
+mongoose
+  .connect(db.url, db.options)
+  .then(() => console.log('Database Connected'))
+  .catch((error) => console.error(error));
 
 //body parser
 app.use(bodyParser.json());
